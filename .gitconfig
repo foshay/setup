@@ -1,10 +1,5 @@
 [user]
 	name = foshay
 	email = foshayi@oregonstate.edu
-	singingkey = 76BC6C4EA4CCBCAF
 [core]
 	editor = vim
-[vain]
-	default = bee
-[commit]
-	gpgsign = true
