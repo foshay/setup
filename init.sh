@@ -22,7 +22,6 @@ packagelist=(
 	wireshark
 	ruby
 	gdb
-	git
 	curl
 	forensics-extra
 	net-tools
@@ -30,6 +29,7 @@ packagelist=(
 	libncurses5:i386
 	libstdc++6:i386
 	lib32z1
+    tmux
 	vim
 	zlib1g-dev
 	yasm
@@ -43,11 +43,16 @@ packagelist=(
 log "Installing new packages via apt"
 sudo -E apt-get install -y ${packagelist[@]}
 
+cp .gitconfig ~/
+cp .tmux.conf ~/
+cp -r .vim ~/
+cp .vimrc ~/
+
 log "Upgrading pip"
 pip3 install --upgrade pip
 
 log "Creating virtualenv"
-python3 -m pip install  virtualenv 
+python3 -m pip install  virtualenv
 python3 -m virtualenv ~/pyenv
 source ~/pyenv/bin/activate
 
@@ -65,7 +70,7 @@ echo "source ~/pyenv/bin/activate" >> ~/.bashrc
 echo "alias gdb=\"gdb -q\"" >> ~/.bashrc
 
 # leave virtualenv so pwndbg doesn't break
-deactivate 
+deactivate
 
 log "Installing gem packages"
 sudo gem install one_gadget
@@ -78,3 +83,4 @@ chmod +x setup.sh
 sudo snap install john-the-ripper
 mkdir CTF
 git clone https://github.com/zardus/ctf-tools.git ~/CTF
+
