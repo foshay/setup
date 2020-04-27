@@ -29,7 +29,7 @@ packagelist=(
 	libncurses5:i386
 	libstdc++6:i386
 	lib32z1
-    tmux
+    	tmux
 	vim
 	zlib1g-dev
 	yasm
@@ -81,6 +81,7 @@ cd ~/.pwndbg
 chmod +x setup.sh
 ./setup.sh
 sudo snap install john-the-ripper
+sudo snap install --classic code
 mkdir CTF
 git clone https://github.com/zardus/ctf-tools.git ~/CTF
 
