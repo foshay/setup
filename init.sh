@@ -1,4 +1,5 @@
 #!/bin/bash
+#WIP
 
 # usage: log(msg)
 function log() {
@@ -84,4 +85,6 @@ sudo snap install john-the-ripper
 sudo snap install --classic code
 mkdir CTF
 git clone https://github.com/zardus/ctf-tools.git ~/CTF
-
+git config --global user.name "$1"
+git config --global user.email "$2"
+ssh-keygen -t rsa -b 4096 -C "$2" -N ''
