@@ -1,5 +1,18 @@
 #!/bin/bash
-#WIP
+
+while getopts ":u:e:" opt; do
+	case $opt in
+		u)
+		git config --global user.name $OPTARG
+		;;
+		e) 
+		git config --global user.email $OPTARG
+		ssh-keygen -t rsa -b 4096 -C $OPTARG -N ''
+		;;
+		*) echo 'error' >&2
+			exit 1
+	esac
+done
 
 # usage: log(msg)
 function log() {
@@ -44,7 +57,6 @@ packagelist=(
 log "Installing new packages via apt"
 sudo -E apt-get install -y ${packagelist[@]}
 
-cp .gitconfig ~/
 cp .tmux.conf ~/
 cp -r .vim ~/
 cp .vimrc ~/
@@ -85,6 +97,6 @@ sudo snap install john-the-ripper
 sudo snap install --classic code
 mkdir CTF
 git clone https://github.com/zardus/ctf-tools.git ~/CTF
-git config --global user.name "$1"
-git config --global user.email "$2"
-ssh-keygen -t rsa -b 4096 -C "$2" -N ''
+git config --global core.editor vim
+echo ---
+cat ~/.ssh/id_rsa.pub
