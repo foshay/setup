@@ -8,6 +8,7 @@ while getopts ":u:e:" opt; do
 		e) 
 		git config --global user.email $OPTARG
 		ssh-keygen -t rsa -b 4096 -C $OPTARG -N ''
+
 		;;
 		*) echo 'error' >&2
 			exit 1
@@ -64,26 +65,26 @@ cp .vimrc ~/
 log "Upgrading pip"
 pip3 install --upgrade pip
 
-log "Creating virtualenv"
-python3 -m pip install  virtualenv
-python3 -m virtualenv ~/pyenv
-source ~/pyenv/bin/activate
+#log "Creating virtualenv"
+#python3 -m pip install  virtualenv
+#python3 -m virtualenv ~/pyenv
+#source ~/pyenv/bin/activate
 
 log "Installing pwntools"
 # install python3 tools
 python3 -m pip install pwntools
 
 log "Installing pip packages"
-python3 -m pip install pillow scapy pycrypto
+python3 -m pip install Pillow scapy pycrypto ImageHash
 
 # because python dependences are a pain in the ass
 # Also adds to path
-log "Adding venv to .bashrc"
-echo "source ~/pyenv/bin/activate" >> ~/.bashrc
+#log "Adding venv to .bashrc"
+#echo "source ~/pyenv/bin/activate" >> ~/.bashrc
 echo "alias gdb=\"gdb -q\"" >> ~/.bashrc
 
 # leave virtualenv so pwndbg doesn't break
-deactivate
+#deactivate
 
 log "Installing gem packages"
 sudo gem install one_gadget
