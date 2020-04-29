@@ -1,0 +1,3 @@
+http://factordb.com/ (Factoring p and q from N)
+https://libc.blukat.me/ (Find libc version based on libc offsets)
+https://gchq.github.io/CyberChef/ (Cyber swiss army knife)
