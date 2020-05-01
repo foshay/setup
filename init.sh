@@ -5,7 +5,7 @@ while getopts ":u:e:" opt; do
 		u)
 		git config --global user.name $OPTARG
 		;;
-		e) 
+		e)
 		git config --global user.email $OPTARG
 		ssh-keygen -t rsa -b 4096 -C $OPTARG -N ''
 
@@ -44,7 +44,9 @@ packagelist=(
 	libncurses5:i386
 	libstdc++6:i386
 	lib32z1
-    	tmux
+	openjdk-8-jre
+    tmux
+    ubuntu-make
 	vim
 	zlib1g-dev
 	yasm
@@ -99,5 +101,6 @@ sudo snap install --classic code
 mkdir CTF
 git clone https://github.com/zardus/ctf-tools.git ~/CTF
 git config --global core.editor vim
+mkdir Applications
 echo ---
 cat ~/.ssh/id_rsa.pub

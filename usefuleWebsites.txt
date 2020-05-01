@@ -1,3 +1,5 @@
+https://www.mozilla.org/en-US/firefox/developer/ (Firefox dev version)
+https://portswigger.net/burp/releases/professional-community-2020-4 (Burp install
 http://factordb.com/ (Factoring p and q from N)
 https://libc.blukat.me/ (Find libc version based on libc offsets)
 https://gchq.github.io/CyberChef/ (Cyber swiss army knife)
