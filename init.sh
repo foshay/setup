@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while getopts ":u:e:" opt; do
+while getopts ":u:e:c" opt; do
 	case $opt in
 		u)
 		git config --global user.name $OPTARG
@@ -8,7 +8,13 @@ while getopts ":u:e:" opt; do
 		e)
 		git config --global user.email $OPTARG
 		ssh-keygen -t rsa -b 4096 -C $OPTARG -N ''
-
+		;;
+		c)
+		cp .tmux.conf ~/
+		cp -r .vim ~/
+		cp .vimrc ~/
+		git config --global core.editor vim
+		exit 0
 		;;
 		*) echo 'error' >&2
 			exit 1
@@ -102,7 +108,6 @@ git clone https://github.com/pwndbg/pwndbg ~/.pwndbg
 cd ~/.pwndbg
 chmod +x setup.sh
 ./setup.sh
-sudo snap install john-the-ripper
 sudo snap install --classic code
 cd ~/
 mkdir CTF
