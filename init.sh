@@ -7,7 +7,7 @@ while getopts ":u:e:c" opt; do
 		;;
 		e)
 		git config --global user.email $OPTARG
-		ssh-keygen -t rsa -b 4096 -C $OPTARG -N ''
+		#ssh-keygen -t rsa -b 4096 -C $OPTARG -N ''
 		;;
 		c)
 		cp .tmux.conf ~/
