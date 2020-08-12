@@ -2,7 +2,6 @@ set nocompatible
 set t_Co=256
 set bg=dark
 set modeline
-so ~/.cs444/vim/autoload/plug.vim
 call plug#begin('~/.cs444/vim/plugged')
 " 80 line
 Plug 'vim-scripts/eighties.vim'
@@ -16,8 +15,6 @@ Plug 'tomlion/vim-solidity'
 Plug 'kien/ctrlp.vim'
 call plug#end()
 
-
-colorscheme angr
 
 set wildignore+=*.DS_Store
 set wildignore+=*.pyc
